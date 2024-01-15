@@ -215,12 +215,19 @@ function Add-Path
 	Process
 	{
 		$namePortion = $Line.Split("=")[0].Replace("+", "").Trim();
-		$pathPortion = $Line.Split("=")[1].Replace("`"", "").Replace("'", "").Replace(";", "").Trim();
+		$pathPortion = $Line.Split("=")[1].Replace("`"", "").Replace("'", "").Replace(";;", ";").Trim();
 		
 		$paths = $pathPortion.Split(";")
-		$paths += $Path
+		$newPath = $Path
+		if(-Not $Path.EndsWith('\'))
+		{
+			$newPath += '\'
+		}
+		$paths += $newPath
+		$trimmedAndFilteredArray = $paths | ForEach-Object { $_.Trim() } | Where-Object { $_ -ne "" }
 		
-		$result = "$namePortion += `";$($paths -Join ';')`""
+		$combinedPaths = ($trimmedAndFilteredArray -Join ';')
+		$result = "$namePortion += `";$combinedPaths`""
 
 		return $result
 	}
