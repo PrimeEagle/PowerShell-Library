@@ -82,7 +82,7 @@ FunctionsToExport = @('Get-RootScriptPath','Get-RootScriptName','Write-DisplayHo
 'Get-PathPart', 'Get-ZipList', 'Test-ZipHasSingleTopLevelDirectory', 'Expand-Zip', 'Test-PathIsDirectory', 'Test-PathIsFile',
 'Get-CommonParameterList', 'Confirm-DirectoryExists', 'Add-LineToProfile', 'Remove-LineFromProfile', 'Get-PathQueue', 'Assert-PathQueueParameter', 'Rename-InvalidFilename',
 'Add-SymbolicLink', 'Remove-SymbolicLink', 'Test-SymbolicLink', 'Test-ZipPassword', 'Edit-PathDrive', 'Get-DirectorySize', 'Get-FileLabel', 'Get-DirectoryLabel', 'Backup-Directory',
-'Format-FileSize',
+'Format-FileSize', 'Update-ModuleHelp', 'Get-LineFromFile',
 'Test-ModuleInstalled', 'Install-Moduel', 'Uninstall-Module', 'Import-LocalModule', 'Format-Profile', 'Use-Module', 'Complete-Install')
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.

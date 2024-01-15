@@ -255,7 +255,7 @@ function Write-DisplayHelp
 	if($HelpSynopsis)
 	{
 		$aliasStr = Get-AliasString -Name $scriptName
-		Write-DisplayHost "$($scriptName.PadRight(28, ' '))" -NoNewline -Style HelpTitle
+		Write-DisplayHost "$($scriptName.PadRight(38, ' '))" -NoNewline -Style HelpTitle
 		Write-DisplayHost "$($aliasStr.PadRight(16, ' '))" -NoNewline -Style HelpItem
 		Write-DisplayHost "$($helpInfo.Synopsis)" -Style HelpDescription
 	}

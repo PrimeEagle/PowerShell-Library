@@ -242,7 +242,7 @@ function Remove-Path
 	
 	Process
 	{
-		$result = $Line.Replace(";" + $Path, "").Replace($Path + ";", "").Replace($Path, "").Replace(";;", ";").Trim()
+		$result = $Line.Replace(";$Path", "").Replace("$Path;", "").Replace($Path, "").Replace(";;", ";").Replace("\\","\").Trim()
 		
 		return $result
 	}
@@ -444,16 +444,16 @@ function Remove-ImportModuleFromProfile
 
     Process
     {  
-		Write-Host "Removing module using for '$Module' from profile..." -NoNewLine
+		Write-Host "Removing module import for '$Module' from profile..." -NoNewLine
 		
         if(Test-Path -Path $profile)
         {
-            $module = "Import-Module $Module"
-			$exists = Confirm-FileHasLine -Path $profile -Equals $module -IgnoreWhitespace
+			$exists = Confirm-FileHasLine -Path $profile -StartsWith "Import-Module" -Contains $Module -IgnoreWhitespace
 			
 			if($exists)
 			{
-				Remove-FromFile -Path $profile -Text $module -IgnoreWhitespace
+				$toRemove = Get-LineFromFile -Path $profile -StartsWith "Import-Module" -Contains $Module -IgnoreWhitespace
+				Remove-FromFile -Path $profile -Text $toRemove -IgnoreWhitespace
 				Write-Host "success."
 			}
 			else
@@ -513,6 +513,28 @@ function Import-LocalModule
 }
 
 # ---------- Miscellaneous ----------		
+function Format-Path
+{
+	[CmdletBinding()]
+    param ( [Parameter(Mandatory = $true)] [string]$Path )
+	
+	Process
+	{
+		$name = $Path.Replace("+=", "=").Split("=")[0].Trim()
+		$pathPart = $Path.Split("=")[1].Trim()
+		$result = $pathPart.Substring(1, $pathPart.Length - 2)
+		
+		$tempResult = $result.Replace(";", "").Replace("\", "")
+
+		if($tempResult -eq "")
+		{
+			$result = $tempResult
+		}
+		
+		return "$name += `"$result`""
+	}
+}
+
 function Format-Profile {
     Process {
         Write-Host "Cleaning up profile..." -NoNewLine
@@ -535,8 +557,8 @@ function Format-Profile {
                 switch -Regex ($line) {
                     '^using module' { $usingModuleLines += $line }
 					'^Import-Module' { $importModuleLines += $line }
-                    '^\$Env:Path \+=' { $envPathLines += $line }
-                    '^\$Env:PSModulePath \+=' { $envModulePathLines += $line }
+                    '^\$Env:Path \+=' { $envPathLines += (Format-Path -Path $line) }
+                    '^\$Env:PSModulePath \+=' { $envModulePathLines += (Format-Path -Path $line) }
                     '^if\(-Not \(Get-Alias -Name' { $aliasLines += $line }
                     default { $otherLines += $line }
                 }
@@ -589,5 +611,15 @@ function Complete-Install
 	Write-Host "Please close all PowerShell console windows and run it again in order to refresh your profile."
 }
 
+function Update-ModuleHelp
+{
+    [CmdletBinding()]
+    param ( [Parameter(Mandatory = $true)] [string]$Module )
+
+    Process
+    {
+		Update-Help -UICulture en-US -Module $Module
+	}
+}
 
 Export-ModuleMember -Function *

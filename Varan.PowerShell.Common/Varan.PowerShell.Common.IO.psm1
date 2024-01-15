@@ -881,6 +881,101 @@ function Confirm-FileHasLine
 	$result
 }
 
+function Get-LineFromFile
+{
+	[CmdletBinding()]
+	param ( [Parameter(Position = 0, Mandatory = $true)]
+			[ValidatePath(FileOnly, MustExist)]		[string]$Path,
+			[Parameter()]							[string]$StartsWith,
+			[Parameter()]							[string]$Contains,
+			[Parameter()]							[string]$EndsWith,
+			[Parameter()]							[string]$Equals,
+			[Parameter()]							[switch]$IgnoreWhitespace
+		  )
+
+	$lines = Get-Content $Path
+	
+	$result = ""
+	
+	if(-Not ($StartsWith) -And -Not ($Contains) -And -Not ($EndsWith) -And -Not ($Equals)) { return "" }
+	
+	foreach($line in $lines)
+	{
+		if(-Not [String]::IsNullOrWhiteSpace($line))
+		{
+			$test = $line.ToLower()
+			
+			if ($IgnoreWhitespace) { $test = $test.Trim() }
+
+			$resultStart = $true
+			$resultContains = $true
+			$resultEnd = $true
+			$resultEquals = $true
+			
+			if($StartsWith)
+			{
+				if($test.StartsWith($StartsWith.ToLower()))
+				{
+					$resultStart = $true
+				}
+				else
+				{
+					$resultStart = $false
+				}
+			}
+
+			if($Contains)
+			{
+				if(-Not $Contains) { $resultContains = $true }		
+				if($test.Contains($Contains.ToLower()))
+				{
+					$resultContains = $true
+				}
+				else
+				{
+					$resultContains = $false
+				}
+			}
+			
+			if($EndsWith)
+			{
+				if(-Not $EndsWith) { $resultEnd = $true }
+				if($test.EndsWith($EndsWith.ToLower()))
+				{
+					$resultEnd = $true
+				}
+				else
+				{
+					$resultEnd = $false
+				}
+			}
+			
+			if($Equals)
+			{
+				if(-Not $Equals) { $resultEquals = $true }
+				if($test -eq $Equals.ToLower())
+				{
+					$resultEquals = $true
+				}
+				else
+				{
+					$resultEquals = $false
+				}
+			}
+			
+			$match = $resultStart -And $resultContains -And $resultEnd -And $resultEquals
+			
+			if($match) 
+			{
+				$result = $line
+				break 
+			}
+		}
+	}
+	
+	return $result
+}
+
 function Test-PathIsDirectory
 {
 	[CmdletBinding()]
