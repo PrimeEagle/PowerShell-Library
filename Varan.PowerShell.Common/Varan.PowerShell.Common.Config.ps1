@@ -22,7 +22,7 @@ $global:svnCodeScriptsRootUrl		   			= "$($svnCodeRootUrl)PowerShell Scripts/"		
 # --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 $global:maxStatusLength				   			= $Host.UI.RawUI.BufferSize.Width																		# max size of Write-Status messages, in characters
 $global:minimumPowershellVersion	   			= 7																										# minimum version of PowerShell required for scripts
-$global:numUSBDrives				   			= 14																								# number of expected USB drives, when checking
+$global:numUSBDrives				   			= 14																									# number of expected USB drives, when checking
 $global:logTimeout					   			= 30																									# timeout for waiting for log file to be unlocked (in seconds)
 $global:numCopyThreads							= 12																									# maximum number of parallel copy threads
 # --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
