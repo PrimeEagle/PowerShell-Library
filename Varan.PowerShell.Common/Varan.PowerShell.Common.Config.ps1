@@ -1,6 +1,6 @@
 # --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-$global:codeRootDir    	               			= "D:\My Code\"																							# absolute path of code root directory
-$global:codeScriptsRootDir        	   			= "$($codeRootDir)PowerShell Scripts\"																	# absolute path of code scripts root directory
+$global:codeRootDir    	               			= "D:\My Code\"																							# absolute path of code root directory (all code)
+$global:codeScriptsRootDir        	   			= "$($codeRootDir)PowerShell Scripts\"																	# absolute path of code scripts root directory (PowerShell scripts, subdirectory of codeRootDir)
 $global:modulesDir					   			= "${codeScriptsRootDir}Modules\"																		# absolute path of PowerShell modules directory
 # --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 $global:svnTortoiseExe            	   			= 'C:\Program Files\TortoiseSVN\bin\TortoiseProc.exe'													# absolute path of Tortoise SVN .exe
@@ -14,11 +14,15 @@ $global:sevenZipExe								= 'C:\Program Files\7-Zip\7z.exe'																		# 
 $global:restartUsbPortExe						= 'C:\Program Files\Restart USB Port\RestartUsbPort.exe'											    # absolute path of RestartUsbPort.exe
 $global:versionFilename							= 'version.txt'																						    # name of version file
 # --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Subversion config
 $global:svnWebUrlBase				   			= 'https://matrix.tplinkdns.com'																		# SVN server domain URL
 $global:svnWebPort					   			= 8443																									# SVN server port number
 $global:svnCodeRootUrl                			= "$($svnWebUrlBase):$([string]$svnWebPort)/svn/MyCode/"												# SVN server code root URL
 $global:svnCodeTagsUrl                			= "$($svnCodeRootUrl)Tags/"																				# SVN server code tags URL
 $global:svnCodeScriptsRootUrl		   			= "$($svnCodeRootUrl)PowerShell Scripts/"																# SVN server code scripts root URL
+# --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Git config
+
 # --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 $global:maxStatusLength				   			= $Host.UI.RawUI.BufferSize.Width																		# max size of Write-Status messages, in characters
 $global:minimumPowershellVersion	   			= 7																										# minimum version of PowerShell required for scripts

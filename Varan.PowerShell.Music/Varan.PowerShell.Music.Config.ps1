@@ -1,7 +1,7 @@
 #
 # --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-$global:codeScriptsDir           	   = "$($codeScriptsRootDir)mu\"								# absolute path of code scripts directory
+$global:codeScriptsDir           	   = "$($codeScriptsRootDir)Music\"								# absolute path of code scripts directory
 # --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 $global:displayHost				       = $true														# enable display to console for Write-DisplayHost
 $global:displayInfo				   	   = $false														# enable display to console for Write-DisplayInfo
