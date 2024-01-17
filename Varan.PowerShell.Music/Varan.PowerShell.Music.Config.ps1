@@ -3,6 +3,8 @@
 
 $global:codeScriptsDir           	   = "$($codeScriptsRootDir)Music\"								# absolute path of code scripts directory
 # --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+$global:museScoreExe            	   = 'C:\Program Files\MuseScore 3\bin\MuseScore3.exe'			# absolute path of MuseScore .exe
+# --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 $global:displayHost				       = $true														# enable display to console for Write-DisplayHost
 $global:displayInfo				   	   = $false														# enable display to console for Write-DisplayInfo
 $global:displayTrace				   = $true														# enable display to console for Write-DisplayTrace

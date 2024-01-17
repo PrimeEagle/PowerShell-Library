@@ -27,7 +27,7 @@ Author = 'John Varan'
 # CompanyName = ''
 
 # Copyright statement for this module
-Copyright = '(c) 2022 John Varan. All rights reserved.'
+Copyright = '(c) 2024 John Varan. All rights reserved.'
 
 # Description of the functionality provided by this module
 # Description = ''
@@ -129,4 +129,3 @@ PrivateData = @{
 # DefaultCommandPrefix = ''
 
 }
-
