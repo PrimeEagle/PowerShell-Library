@@ -31,7 +31,7 @@ using module Varan.PowerShell.Validation
 #Requires -Modules Varan.PowerShell.SelfElevate
 #Requires -Modules Varan.PowerShell.Summary
 #Requires -Modules Varan.PowerShell.Validation
-[CmdletBinding(SupportsShouldProcess)]
+[CmdletBinding(SupportsShouldProcess, ConfirmImpact = 'High')]
 param (	
 	  )
 DynamicParam { Build-BaseParameters -IncludeMusicPathQueues }

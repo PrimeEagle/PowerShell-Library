@@ -5,12 +5,20 @@ class QueueItem
 	[string]	$Name
 	[string]	$Path
 	[string]	$BackupPath
+	[string]    $DeviceId
+	[string]    $BackupDeviceId
+	[string]	$DriveLetter
+	[string]	$BackupDriveLetter
 	
-	QueueItem([string] $name, [string]$path, [string]$backupPath)
+	QueueItem([string] $name, [string]$path, [string]$backupPath, [string]$deviceId, [string]$backupDeviceId)
 	{
 		$this.Name = $name
 		$this.Path = $path
 		$this.BackupPath = $backupPath
+		$this.DeviceId = $deviceId
+		$this.BackupDeviceId = $backupDeviceId
+		$this.DriveLetter = $path.Substring(0, 3).ToUpper()
+		$this.BackupDriveLetter = $backupPath.Substring(0, 3).ToUpper()
 	}
 }
 
@@ -74,37 +82,19 @@ function Get-PathQueue
 			$music7 			= ($DrivePreset.Contains([MusicDrive]::Music7) 				-Or	$DrivePreset.Contains([MusicDrive]::All))
 			$musicBackup7 		= ($DrivePreset.Contains([MusicDrive]::Music7Backup) 		-Or	$DrivePreset.Contains([MusicDrive]::All))
 			
-			if($musicTemp) 			{ $queue += [QueueItem]::new("Music Temp", 			$musicTempPath,			'') 				}
-			if($musicLaptopTemp) 	{ $queue += [QueueItem]::new("Music Laptop Temp", 	$musicLaptopTempPath,	'') 				}
-			if($music1) 			{ $queue += [QueueItem]::new("Music 1", 			$music1Path,			$musicBackup1Path) 	}
-			if($music2) 			{ $queue += [QueueItem]::new("Music 2", 			$music2Path,			$musicBackup2Path) 	}
-			if($music3) 			{ $queue += [QueueItem]::new("Music 3", 			$music3Path,			$musicBackup3Path) 	}
-			if($music4) 			{ $queue += [QueueItem]::new("Music 4", 			$music4Path,			$musicBackup4Path) 	}
-			if($music5) 			{ $queue += [QueueItem]::new("Music 5", 			$music5Path,			$musicBackup5Path) 	}
-			if($music6) 			{ $queue += [QueueItem]::new("Music 6", 			$music6Path,			$musicBackup6Path) 	}	
-			if($music7) 			{ $queue += [QueueItem]::new("Music 7", 			$music7Path,			$musicBackup7Path) 	}	
+			if($musicTemp) 			{ $queue += [QueueItem]::new("Music Temp", 			$musicTempPath,			'',                  '',                '') 				    }
+			if($musicLaptopTemp) 	{ $queue += [QueueItem]::new("Music Laptop Temp", 	$musicLaptopTempPath,	'',                  '',                '') 				    }
+			if($music1) 			{ $queue += [QueueItem]::new("Music 1", 			$music1Path,			$musicBackup1Path,   $music1DeviceId,   $musicBackup1DeviceId) 	}
+			if($music2) 			{ $queue += [QueueItem]::new("Music 2", 			$music2Path,			$musicBackup2Path,   $music2DeviceId,   $musicBackup2DeviceId) 	}
+			if($music3) 			{ $queue += [QueueItem]::new("Music 3", 			$music3Path,			$musicBackup3Path,   $music3DeviceId,   $musicBackup3DeviceId) 	}
+			if($music4) 			{ $queue += [QueueItem]::new("Music 4", 			$music4Path,			$musicBackup4Path,   $music4DeviceId,   $musicBackup4DeviceId) 	}
+			if($music5) 			{ $queue += [QueueItem]::new("Music 5", 			$music5Path,			$musicBackup5Path,   $music5DeviceId,   $musicBackup5DeviceId) 	}
+			if($music6) 			{ $queue += [QueueItem]::new("Music 6", 			$music6Path,			$musicBackup6Path,   $music6DeviceId,   $musicBackup6DeviceId) 	}	
+			if($music7) 			{ $queue += [QueueItem]::new("Music 7", 			$music7Path,			$musicBackup7Path,   $music7DeviceId,   $musicBackup7DeviceId) 	}	
 
 			Confirm-USBDrives
 		}
-
-		foreach($d in $DriveLetter)
-		{
-			$dl = (Get-PathPart -Path $d -DriveLetter) + ":\"
-			$queue += [QueueItem]::new("'$dl'", $dl, '')
-		}
-
-		foreach($d in $DriveLabel)
-		{
-			$dl = (Get-Volume -FileSystemLabel $d).DriveLetter + ":\"
-			
-			$queue += [QueueItem]::new($DriveLabel, $dl, '')
-		}
-
-		foreach($p in $Path)
-		{
-			$queue += [QueueItem]::new("'$Path'", $p, '')
-		}
-		
+	
 		Write-DisplayTrace "Exit $funcName"
 		
 		$queue
