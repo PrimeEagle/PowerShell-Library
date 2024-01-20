@@ -15,7 +15,7 @@
 	None.
 
 	.EXAMPLE
-	PS> .\mucl -Drive Music1,Music4
+	PS> .\script.ps1 -Drive Music1,Music4
 #>
 using module Varan.PowerShell.Music
 using module Varan.PowerShell.PerformanceTimer
@@ -39,11 +39,13 @@ DynamicParam { Build-BaseParameters -IncludeMusicPathQueues }
 Begin
 {	
 	Write-LogTrace "Execute: $(Get-RootScriptName)"
+	$minParams = Get-MinimumRequiredParameterCount -CommandInfo (Get-Command $MyInvocation.MyCommand.Name)
 	$cmd = @{}
 
 	if(Get-BaseParamHelpFull) { $cmd.HelpFull = $true }
-	if((Get-BaseParamHelpDetail) -Or ($PSBoundParameters.Count -eq 0)) { $cmd.HelpDetail = $true }
+	if((Get-BaseParamHelpDetail) -Or ($PSBoundParameters.Count -lt $minParams)) { $cmd.HelpDetail = $true }
 	if(Get-BaseParamHelpSynopsis) { $cmd.HelpSynopsis = $true }
+	
 	if($cmd.Count -gt 1) { Write-DisplayHelp -Name "$(Get-RootScriptPath)" -HelpDetail }
 	if($cmd.Count -eq 1) { Write-DisplayHelp -Name "$(Get-RootScriptPath)" @cmd }
 }
@@ -53,17 +55,23 @@ Process
 	{
 		$isDebug = Assert-Debug
 		
-		if(-Not (Assert-PathQueueParameter))
-		{
-			Write-DisplayHelp -Name "$(Get-RootScriptPath)" -HelpDetail
-		}
-	
-		$queue = Get-PathQueue -DrivePreset (Get-BaseParamDrivePreset) -DriveLetter (Get-BaseParamDriveLetter) -DriveLabel (Get-BaseParamDriveLabel) -Path (Get-BaseParamPath)
+		if ($PSBoundParameters["IncludeMusicPathQueuesParameter"]) {
+			if(-Not (Assert-PathQueueParameter))
+			{
+				Write-DisplayHelp -Name "$(Get-RootScriptPath)" -HelpDetail
+			}
+		
+			$queue = Get-PathQueue -DrivePreset (Get-BaseParamDrivePreset) -DriveLetter (Get-BaseParamDriveLetter) -DriveLabel (Get-BaseParamDriveLabel) -Path (Get-BaseParamPath)
 
-		foreach($q in $queue)
-		{	
-			if($q.BackupPath.Length -eq 0) { continue }
+			foreach($q in $queue)
+			{	
+				if($q.BackupPath.Length -eq 0) { continue }
+				
+				# main code using path queue
+			}
 		}
+		
+		# rest of main code
 	}
 	catch [System.Exception]
 	{

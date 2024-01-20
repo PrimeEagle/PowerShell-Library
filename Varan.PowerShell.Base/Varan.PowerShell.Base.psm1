@@ -388,6 +388,43 @@ function Get-BaseParameterDefinitions
 	return $baseParameterDefinitions
 }
 
+function Get-MinimumRequiredParameterCount {
+    param (
+        [System.Management.Automation.CommandInfo]$CommandInfo
+    )
+
+    $parameterSetMandatoryCounts = @{}
+
+    foreach ($param in $CommandInfo.Parameters.Values) {
+        foreach ($attribute in $param.Attributes) {
+            if ($attribute -is [System.Management.Automation.ParameterAttribute]) {
+                if ($attribute.Mandatory) {
+                    foreach ($setName in $attribute.ParameterSetName) {
+                        if (-not $parameterSetMandatoryCounts.ContainsKey($setName)) {
+                            $parameterSetMandatoryCounts[$setName] = 0
+                        }
+                        $parameterSetMandatoryCounts[$setName]++
+                    }
+                }
+            }
+        }
+    }
+
+    # Find the minimum count of mandatory parameters across all parameter sets
+    $minimumRequiredCount = [Int32]::MaxValue
+    foreach ($count in $parameterSetMandatoryCounts.Values) {
+        if ($count -lt $minimumRequiredCount) {
+            $minimumRequiredCount = $count
+        }
+    }
+
+    if ($minimumRequiredCount -eq [Int32]::MaxValue) {
+        return 0 # Return 0 if no mandatory parameters are found
+    }
+
+    return $minimumRequiredCount
+}
+
 function Build-BaseParameters 
 {
 	[CmdletBinding()]
@@ -425,6 +462,16 @@ function Build-BaseParameters
 
         $paramDictionary.Add($pKey, $dynParam)  
     }
+
+	$includeMusicPathQueuesAttribCol = New-Object System.Collections.ObjectModel.Collection[System.Attribute]
+	$includeMusicPathQueuesAttrib = New-Object System.Management.Automation.ParameterAttribute
+	$includeMusicPathQueuesAttrib.Mandatory = $false
+	$includeMusicPathQueuesAttrib.ParameterSetName = [System.Management.Automation.ParameterAttribute]::AllParameterSets
+	$includeMusicPathQueuesAttribCol.Add($includeMusicPathQueuesAttrib)
+
+	$includeMusicPathQueuesParam = New-Object System.Management.Automation.RuntimeDefinedParameter('IncludeMusicPathQueuesParameter', [switch], $includeMusicPathQueuesAttribCol)
+	$includeMusicPathQueuesParam.Value = $IncludeMusicPathQueues
+	$paramDictionary.Add('IncludeMusicPathQueuesParameter', $includeMusicPathQueuesParam)
 	
     return $paramDictionary         
 }

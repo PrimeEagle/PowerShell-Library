@@ -420,7 +420,11 @@ function Write-DisplayHelp
 			foreach($example in $helpInfo.Examples)
 			{		
 				$exList = $example.Split(' ')
-				$exRemaining = $example.Substring($exList[0].Length + $exList[1].Length + 2)
+				$exRemaining = ''
+				if($exList.Length -gt 2)
+				{
+					$exRemaining = $example.Substring($exList[0].Length + $exList[1].Length + 2)
+				}
 				
 				Write-DisplayHost "$indent$($exList[0])" -NoNewline -Style HelpPrompt
 				Write-DisplayHost " $($exList[1])" -NoNewline -Style HelpDescription
