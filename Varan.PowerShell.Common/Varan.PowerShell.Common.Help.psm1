@@ -159,7 +159,8 @@ function Read-HelpComments
 		$result.Excluded = $false
 	}
 	
-	$helpStr = Get-Help "$([System.IO.Path]::GetFileNameWithoutExtension($Path))" -Full | Out-String -Stream
+	$filename = [System.IO.Path]::GetFileNameWithoutExtension($Path)
+	$helpStr = Get-Help "$filename" -Full | Out-String -Stream
 	$helpLines = $helpStr.Split('`n`r')
 
 	$inSyntax = $false
