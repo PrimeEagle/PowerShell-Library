@@ -6,6 +6,7 @@ $global:modulesDir					   			= "${codeScriptsRootDir}Modules\"																		
 $global:svnTortoiseExe            	   			= 'C:\Program Files\TortoiseSVN\bin\TortoiseProc.exe'													# absolute path of Tortoise SVN .exe
 $global:scriptEditorExe           	   			= 'C:\Program Files\Notepad++\notepad++.exe'															# absolute path of Notepad++ .exe
 $global:visualStudioExe               			= 'C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\IDE\devenv.exe'				# absolute path of Visual Studio
+$global:visualStudioCodeExe            			= 'C:\Users\johnv\AppData\Local\Programs\Microsoft VS Code\Code.exe'									# absolute path of Visual Studio Code
 $global:iisExpressExe                 			= 'C:\Program Files (x86)\IIS Express\iisexpress.exe'													# absolute path of IIS Express
 $global:ssmsExe                   	   			= 'C:\Program Files (x86)\Microsoft SQL Server Management Studio 18\Common7\IDE\Ssms.exe'				# absolute path of SQL Server Management Studio
 $global:msbuildExe		               			= 'C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\MSBuild\Current\Bin\MSBuild.exe'	# absolute path of MSBuild
