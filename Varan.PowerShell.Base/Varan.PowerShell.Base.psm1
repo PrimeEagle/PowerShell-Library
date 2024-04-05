@@ -392,7 +392,8 @@ function Get-MinimumRequiredParameterCount {
     param (
         [System.Management.Automation.CommandInfo]$CommandInfo
     )
-
+	$CommandInfo = Get-Command $MyInvocation.MyCommand.Name
+	
     $parameterSetMandatoryCounts = @{}
 
     foreach ($param in $CommandInfo.Parameters.Values) {
