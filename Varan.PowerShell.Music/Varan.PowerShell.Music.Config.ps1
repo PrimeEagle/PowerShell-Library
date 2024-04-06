@@ -154,6 +154,7 @@ $global:phrasesToChange = [ordered]@{
 								'smartreverb'							= 'smart-reverb';
 								'Spectrasonic'							= 'Spectrasonics';
 								'TAQS IM'								= 'TAQS.IM';
+								'Uhe'									= 'u-he';
 								'Vol I'									= 'Vol 1';
 								'Vol II'								= 'Vol 2';
 								'Vol III'								= 'Vol 3';
@@ -221,14 +222,23 @@ $global:phrasesToRemove = @{
 								'0Th3rside'								= @();
 								'32 Bit'								= @();
 								'32-Bit'								= @();
+								'4395-TeamCub'							= @();
+								'4395-TeamCubea'						= @();
+								'4395-TeamCubeado'						= @();
+								'4395-TeamCubeadoo'						= @();
+								'4395-TeamCubeadooby'					= @();
 								'64 Bit'								= @();
 								'64-Bit'								= @();
 								'AAX'									= @();
 								'AMXD'									= @();
+								'Arcadia'								= @();
 								'Articstorm'							= @();
+								'AUDIOWAREZ'							= @();
 								'Bonus Sample Pack'						= @();
 								'BTCR'									= @();
+								'by Tryroom'							= @();
 								'CE'									= @('956 CE', 'CE Acoustic');
+								'Crackingpatching'						= @();
 								'CR8'									= @('CR8 Creative Sampler');
 								'CRD'									= @();
 								'DECiBEL'								= @();
@@ -240,6 +250,7 @@ $global:phrasesToRemove = @{
 								'FXP DECiBEL'							= @();
 								'Incl'									= @();
 								'Incl Emulator'							= @();
+								'Iso'									= @();
 								'Keygen'								= @('Keygen Library', 'Voxengo Keygen');
 								'Kontakt'								= @('Battery and Kontakt', 'Kontakt Snapshots', 'Kontakt Pro', 'Native Instruments Kontakt', '(Kontakt)', 'Kontakt Version', 'Kontakt Manager', 'Kontakt WIPS', 'Kontakt SIPS', 'Kontakt Libraries', 'Kontakt Library', 'R2R Kontakt NICNT Generator', 'R2R Team Kontakt Manager', 'for Kontakt', 'Kontakt Manager', 'Kontakt NICNT');
 								'Lin'									= @();
@@ -248,12 +259,16 @@ $global:phrasesToRemove = @{
 								'MacOS'									= @();
 								'Magnetrixx'							= @();
 								'MIDI'									= @('MIDI & Loops', 'Loops & MIDI', 'MIDI Collection', 'MIDI Pack', 'Jazz Brush MIDI', 'MIDI Velocity', 'MIDI for EZkeys', 'MIDI for EZbass', 'Piz MIDI', 'TXR1 MIDI', 'MIDI Bundle', 'MIDI Pack', 'MIDI Loops', 'SmartScore 64 MIDI', 'XBox MIDI Control', 'OSC MIDI Server');
+								'MOCHA'									= @();
 								'MORiA'									= @();
+								'MULTI6'								= @();
 								'MULTiFORMAT'							= @();
 								'Multilingual'							= @();
 								'NKI'									= @();
 								'NO INSTALL'							= @();
+								'Oddsox'								= @();
 								'Osx'									= @();
+								'PART01'								= @();
 								'Patch and Keygen'						= @();
 								'Patched and Keygen'					= @();
 								'Patched'								= @();
@@ -272,6 +287,9 @@ $global:phrasesToRemove = @{
 								'Setup'									= @();
 								'SYMLINK Installer'						= @();
 								'SYNTHiC4TE'							= @();
+								'TeamCubea'								= @();
+								'TeamCubeado'							= @();
+								'Teamcubeadooby'						= @();
 								'Unlocked'								= @();
 								'V R'									= @();
 								'VR'									= @('SVT-VR');
@@ -281,9 +299,13 @@ $global:phrasesToRemove = @{
 								'VSTi'									= @('VSTi Scope');
 								'WAV DECiBEL'							= @();
 								'WAV'									= @('Essential WAV');
+								'WIN64'									= @();
 								'WIN MAC LIN'							= @();
 								'WIN MAC'								= @();
 								'WIN'									= @();
+								'www zonatorrent com'					= @();
+								'www.zonatorrent.com'					= @();
+								'x32x64'								= @();
 								'x64'									= @();
 								'x86'									= @();
 								'Zip'									= @();
@@ -372,6 +394,7 @@ $global:caseSensitivePhrases = @(
 								'ASMR',
 								'ASR',
 								'at',
+								'audio2score',
 								'AudioCipher',
 								'AudioGridder',
 								'AudioRealism',
@@ -384,6 +407,7 @@ $global:caseSensitivePhrases = @(
 								'AWP',
 								'AX',
 								'AZONIC',
+								'BaseHead',
 								'BBC',
 								'BBE',
 								'BeatBox',
@@ -406,6 +430,7 @@ $global:caseSensitivePhrases = @(
 								'BusComp',
 								'BussPressor',
 								'but',
+								'BVA',
 								'by',
 								'CamelSpace',
 								'CE',
@@ -415,6 +440,7 @@ $global:caseSensitivePhrases = @(
 								'ChilloutEngine',
 								'Chip64',
 								'ChordieApp',
+								'ChordWizard',
 								'CineBells',
 								'CineBrass',
 								'CineHarps',
@@ -436,6 +462,8 @@ $global:caseSensitivePhrases = @(
 								'CompExp',
 								'CompuRhythm',
 								'CoreBass',
+								'CP-70',
+								'CP-70 V',
 								'Cr2',
 								'CS',
 								'CS15D',
@@ -579,6 +607,7 @@ $global:caseSensitivePhrases = @(
 								'Guitar Rig Pro',
 								'Guitar T',
 								'GuitarFX',
+								'Guitars DE',
 								'HalfTime',
 								'HandsUp',
 								'HarmBode',
@@ -617,6 +646,7 @@ $global:caseSensitivePhrases = @(
 								'IR',
 								'IRs',
 								'is',
+								'ISL',
 								'IV',
 								'IX',
 								'JD 850',
@@ -653,6 +683,7 @@ $global:caseSensitivePhrases = @(
 								'LIP',
 								'LIPP',
 								'LIV',
+								'LM-Correct',
 								'LoopMash',
 								'loopMIDI',
 								'LP',
@@ -668,6 +699,7 @@ $global:caseSensitivePhrases = @(
 								'Mars Sid',
 								'Mars TOM',
 								'MarsPeaks',
+								'MasterCheck',
 								'MasterQ2',
 								'MasterTool',
 								'MAudioPlugins',
@@ -734,6 +766,7 @@ $global:caseSensitivePhrases = @(
 								'NoteLatch',
 								'NotePerformer',
 								'NuElectro',
+								'NUGEN Audio',
 								'NY',
 								'NYC',
 								'OB',
@@ -757,6 +790,7 @@ $global:caseSensitivePhrases = @(
 								'OVO',
 								'PAKs',
 								'part',
+								'PastToFutureReverbs',
 								'PaulXStretch',
 								'PCM',
 								'per',
@@ -943,6 +977,7 @@ $global:caseSensitivePhrases = @(
 								'TV',
 								'Twisted ReActon',
 								'TX16W',
+								'u-he',
 								'UDS',
 								'UFO',
 								'UI',
@@ -975,6 +1010,7 @@ $global:caseSensitivePhrases = @(
 								'VIPZONE ',
 								'Vir2 Instruments BASiS',
 								'Vir2',
+								'VisLM',
 								'Vocal Tools The',
 								'VocalKitchen',
 								'VocalSynth',
@@ -1071,6 +1107,7 @@ $global:dashesToKeep = @(
 								'C-605P',
 								'Capella-Scan',
 								'Clar-Duduk',
+								'CP-70',
 								'CV-I',
 								'CV-O',
 								'Damm-Space',
@@ -1109,6 +1146,7 @@ $global:dashesToKeep = @(
 								'Kawai-EX',
 								'LF-Max',
 								'LF-Punch',
+								'LM-Correct',
 								'Lo-Fi',
 								'MDE-X',
 								'Mel-Lofi',
@@ -1165,6 +1203,7 @@ $global:dashesToKeep = @(
 								'Tube-Tech',
 								'Twin-L',
 								'Two-faces',
+								'u-he',
 								'Ultra TKT',
 								'UVX-10P',
 								'UVX-3P',
@@ -1194,7 +1233,8 @@ $global:periodsToKeep = @(
 								'Mr.',
 								'No.',
 								'ro.ki',
-								'VI.ONE'
+								'VI.ONE',
+								'www.zonatorrent.com'
 						)
 
 # developers with commas will automatically be added to this list
@@ -1773,6 +1813,7 @@ $global:developers = 			@(
 								"Levy's Leathers",
 								'2320 Click Entertainment',
 								'2CAudio',
+								'2MGT',
 								'344 Audio',
 								'3delite',
 								'3M',
@@ -1977,6 +2018,7 @@ $global:developers = 			@(
 								'Bunker 8 Digital Labs',
 								'Bunker Samples',
 								'Busy Works Beats',
+								'BVA',
 								'C.A. Sound',
 								'C2G',
 								'Cable Matters',
@@ -2002,6 +2044,7 @@ $global:developers = 			@(
 								'Che',
 								'Cherry Audio',
 								'Chocolate Audio',
+								'ChordWizard',
 								'ChowDSP',
 								'Chris Hein',
 								'Christian Budde',
@@ -2572,7 +2615,7 @@ $global:developers = 			@(
 								'Novation',
 								'NovoNotes',
 								'NS Musical',
-								'Nugen Audio',
+								'NUGEN Audio',
 								'O! Samples',
 								'Oberheim',
 								'Oblivion Sound',

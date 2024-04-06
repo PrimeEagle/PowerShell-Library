@@ -86,12 +86,15 @@ function Get-ZipList
 			if(	$reservedPhrase -Or $o.StartsWith(' ') -Or $o.StartsWith('-') -Or
 				(($o.Contains(' file, ')) -And ($o.Contains(' bytes ('))) -Or
 				($o.Length -le 52) -Or
-				($o.Substring(20, 5).Trim().Length -eq 0))
+				($o.Substring(20, 5).Trim().Length -eq 0) -Or
+				($o.Contains("ERROR")))
 			{
 				continue
 			}
 					
 			$zipInfo = [ZipItem]::new()
+
+			Write-Debug "o = $o"
 			
 			$idx = 0
 			$len = 19
@@ -115,6 +118,13 @@ function Get-ZipList
 			$idx = 52
 			$zipInfo.Name = $o.Substring($idx)
 
+			Write-Debug "TopLevel = $TopLevel"
+			Write-Debug "Timestamp = $Timestamp"
+			Write-Debug "ItemType = $ItemType"
+			Write-Debug "Name = $Name"
+			Write-Debug "Size = $Size"
+			Write-Debug "CompressedSize = $CompressedSize"
+			
 			if($zipInfo.Name.IndexOf('\') -lt 0) { $zipInfo.TopLevel = $true }
 			$result += $zipInfo
 		}
@@ -223,6 +233,34 @@ function Test-ZipPassword
 		$result = $false
 	}
 	
+	return $result
+}
+
+function Test-ZipIntegrity
+{
+	[CmdletBinding(SupportsShouldProcess)]
+    param(
+		[Parameter(Mandatory = $true, Position = 0)]
+		[ValidatePath()]
+		[string]$File
+	)
+	Write-Debug "Test-ZipIntegrity"
+	$funcName = $MyInvocation.MyCommand
+	Write-DisplayTraceCallerInfo -Parameters $PSBoundParameters
+	
+	$proc = Start-ZipProcess -Arguments "t ""$File""" 
+	$out = $proc.StandardOutput.Split("`r`n")
+		
+	$result = $true
+	foreach($o in $out)
+	{	
+		if($o.ToLower().Contains("error"))
+		{
+			$result = $false
+			break
+		}
+	}
+		
 	return $result
 }
 
