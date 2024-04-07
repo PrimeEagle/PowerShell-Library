@@ -79,7 +79,7 @@ FunctionsToExport = @('Get-RootScriptPath','Get-RootScriptName','Write-DisplayHo
 'Get-BaseParamSummarySource', 'Get-BaseParamSummaryOutput', 'Get-BaseParamSummaryFilename', 'Get-BaseParamDrivePreset', 'Get-BaseParamDriveLetter', 'Get-BaseParamDriveLabel',
 'Get-BaseParamPath', 'Get-BaseParamTesting', 'Get-BaseParamDebugItem', 'Get-BaseParamDebugItemAction', 'Test-ShowFunction', 'Exit-Script', 'Add-AliasToProfile', 'Remove-AliasFromProfile', 'Remove-Substring',
 'Add-PathToProfile', 'Remove-PathFromProfile', 'Add-UsingModuleToProfile', 'Remove-UsingModuleFromProfile', 'Add-ImportModuleToProfile', 'Remove-ImportModuleFromProfile', 'Confirm-FileHasLine', 'Add-IntoFileSection', 'Remove-FromFile',
-'Get-PathPart', 'Get-ZipList', 'Test-ZipHasSingleTopLevelDirectory', 'Expand-Zip', 'Test-PathIsDirectory', 'Test-PathIsFile',
+'Get-PathPart', 'Get-ZipList', 'Test-ZipIntegrity', 'Test-ZipHasSingleTopLevelDirectory', 'Expand-Zip', 'Test-PathIsDirectory', 'Test-PathIsFile',
 'Get-CommonParameterList', 'Confirm-DirectoryExists', 'Add-LineToProfile', 'Remove-LineFromProfile', 'Get-PathQueue', 'Assert-PathQueueParameter', 'Rename-InvalidFilename',
 'Add-SymbolicLink', 'Remove-SymbolicLink', 'Test-SymbolicLink', 'Test-ZipPassword', 'Edit-PathDrive', 'Get-DirectorySize', 'Get-FileLabel', 'Get-DirectoryLabel', 'Backup-Directory',
 'Format-FileSize', 'Update-ModuleHelp', 'Get-LineFromFile',
