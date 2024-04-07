@@ -249,6 +249,7 @@ function Test-ZipIntegrity
 	Write-DisplayTraceCallerInfo -Parameters $PSBoundParameters
 	
 	$proc = Start-ZipProcess -Arguments "t -pwww.audioz.info ""$File""" 
+
 	$out = $proc.StandardOutput.Split("`r`n")
 		
 	$result = $true
