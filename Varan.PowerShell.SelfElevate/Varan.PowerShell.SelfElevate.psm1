@@ -33,7 +33,7 @@ function Open-ElevatedConsole
     $psExecutable = "pwsh.exe"
 
     # Start a new PowerShell process with elevated privileges.
-    Start-Process -Verb RunAs -FilePath $psExecutable -ArgumentList "-noexit", "-encodedCommand", $encodedCommand
+    Start-Process -Verb RunAs -FilePath $psExecutable -ArgumentList "-encodedCommand", $encodedCommand
 
     # Exit, reporting the success of starting the process.
     exit ($LASTEXITCODE, (1, 0)[$?])

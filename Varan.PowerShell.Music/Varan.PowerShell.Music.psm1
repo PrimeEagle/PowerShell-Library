@@ -145,7 +145,7 @@ function Get-ExpansionInfo
 			[string] $PrimaryDeveloper,
 			
 			[Parameter(Mandatory = $true)]
-			[ValidatePath(MustExist)]
+			#[ValidatePath(MustExist)]
 			[string] $Path,
 			
 			[Parameter(Mandatory = $true)]
@@ -348,7 +348,7 @@ function Get-ExpansionInfoFromFiles
 			[string] $Name,
 			
 			[Parameter(Mandatory = $true)]
-			[ValidatePath(MustExist)]
+			#[ValidatePath(MustExist)]
 			[string] $Path,
 			
 			[Parameter(Mandatory = $true)]

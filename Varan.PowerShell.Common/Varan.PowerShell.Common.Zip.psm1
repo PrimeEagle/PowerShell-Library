@@ -72,7 +72,7 @@ function Get-ZipList
 			Write-DisplayDebug "line = $o"
 			foreach($rp in $sevenZipReservedPhrases)
 			{
-				Write-DisplayDebug "   checking reserved word: $rp"
+				#Write-DisplayDebug "   checking reserved word: $rp"
 				if($o.StartsWith($rp))
 				{
 					$reservedPhrase = $true
@@ -86,12 +86,15 @@ function Get-ZipList
 			if(	$reservedPhrase -Or $o.StartsWith(' ') -Or $o.StartsWith('-') -Or
 				(($o.Contains(' file, ')) -And ($o.Contains(' bytes ('))) -Or
 				($o.Length -le 52) -Or
-				($o.Substring(20, 5).Trim().Length -eq 0))
+				($o.Substring(20, 5).Trim().Length -eq 0) -Or
+				($o.Contains("ERROR")))
 			{
 				continue
 			}
 					
 			$zipInfo = [ZipItem]::new()
+
+			Write-Debug "o = $o"
 			
 			$idx = 0
 			$len = 19
@@ -115,6 +118,13 @@ function Get-ZipList
 			$idx = 52
 			$zipInfo.Name = $o.Substring($idx)
 
+			Write-Debug "TopLevel = $TopLevel"
+			Write-Debug "Timestamp = $Timestamp"
+			Write-Debug "ItemType = $ItemType"
+			Write-Debug "Name = $Name"
+			Write-Debug "Size = $Size"
+			Write-Debug "CompressedSize = $CompressedSize"
+			
 			if($zipInfo.Name.IndexOf('\') -lt 0) { $zipInfo.TopLevel = $true }
 			$result += $zipInfo
 		}
@@ -226,6 +236,34 @@ function Test-ZipPassword
 	return $result
 }
 
+function Test-ZipIntegrity
+{
+	[CmdletBinding(SupportsShouldProcess)]
+    param(
+		[Parameter(Mandatory = $true, Position = 0)]
+		[ValidatePath()]
+		[string]$File
+	)
+	Write-Debug "Test-ZipIntegrity"
+	$funcName = $MyInvocation.MyCommand
+	Write-DisplayTraceCallerInfo -Parameters $PSBoundParameters
+	
+	$proc = Start-ZipProcess -Arguments "t -pwww.audioz.info ""$File""" 
+	$out = $proc.StandardOutput.Split("`r`n")
+		
+	$result = $true
+	foreach($o in $out)
+	{	
+		if($o.ToLower().Contains("error"))
+		{
+			$result = $false
+			break
+		}
+	}
+		
+	return $result
+}
+
 function Expand-Zip
 {
 	[CmdletBinding(SupportsShouldProcess, ConfirmImpact = 'High')]
@@ -241,6 +279,7 @@ function Expand-Zip
 		[Parameter()]
 		[string]$Password
 	)
+	
 	$funcName = $MyInvocation.MyCommand
 	Write-DisplayTraceCallerInfo -Parameters $PSBoundParameters
 
@@ -264,21 +303,29 @@ function Expand-Zip
 
 		if($Password.Length -gt 0 -And -Not (Test-ZipPassword -File $fileToUse -Password $Password))
 		{
-			Write-DisplayError "Incorrect password '$Password' for $fileToUse"
+			Write-Host "Incorrect password '$Password' for $fileToUse"
 			$skip = $true
 			$Delete = $false
 		}
 
-		if(-Not $skip)
+		try
 		{
-			if($Args) { $process.StartInfo.Arguments = $Args }
-			$proc = Start-ZipProcess -Arguments "x ""$fileToUse"" -o""$Destination"" -y $pw"
-					
-			if($proc.StandardError.ToLower().Contains('error'))
+			if(-Not $skip)
 			{
-				Write-DisplayError "$($proc.StandardError | Out-String)"
-				$Delete = $false
+				if($Args) { $process.StartInfo.Arguments = $Args }
+				$proc = Start-ZipProcess -Arguments "x ""$fileToUse"" -o""$Destination"" -y $pw"
+
+				if(-Not $proc.StandardOutput.Contains('Everything is Ok'))
+				{
+					Write-DisplayError "($($proc.StandardOutput) | Out-String)"
+					$Delete = $false
+				}
 			}
+		}
+		catch
+		{
+			Write-Host $_
+			throw
 		}
 	}
 	
@@ -351,6 +398,8 @@ function Expand-Zip
 	}
 	
 	Write-DisplayTrace "Exit $funcName"
+	
+	return (-Not $skip)
 }
 
 Export-ModuleMember -Function *

@@ -154,6 +154,7 @@ $global:phrasesToChange = [ordered]@{
 								'smartreverb'							= 'smart-reverb';
 								'Spectrasonic'							= 'Spectrasonics';
 								'TAQS IM'								= 'TAQS.IM';
+								'Uhe'									= 'u-he';
 								'Vol I'									= 'Vol 1';
 								'Vol II'								= 'Vol 2';
 								'Vol III'								= 'Vol 3';
@@ -221,25 +222,36 @@ $global:phrasesToRemove = @{
 								'0Th3rside'								= @();
 								'32 Bit'								= @();
 								'32-Bit'								= @();
+								'4395-TeamCub'							= @();
+								'4395-TeamCubea'						= @();
+								'4395-TeamCubeado'						= @();
+								'4395-TeamCubeadoo'						= @();
+								'4395-TeamCubeadooby'					= @();
 								'64 Bit'								= @();
 								'64-Bit'								= @();
 								'AAX'									= @();
 								'AMXD'									= @();
+								'Arcadia'								= @();
 								'Articstorm'							= @();
+								'AUDIOWAREZ'							= @();
 								'Bonus Sample Pack'						= @();
 								'BTCR'									= @();
+								'by Tryroom'							= @();
 								'CE'									= @('956 CE', 'CE Acoustic');
+								'Crackingpatching'						= @();
 								'CR8'									= @('CR8 Creative Sampler');
 								'CRD'									= @();
 								'DECiBEL'								= @();
 								'DISCOVER'								= @();
 								'DVD9'									= @();
+								'DVDR'									= @();
 								'EXPANION'								= @();
 								'FIXED'									= @();
 								'FLARE'									= @('Polar Flare');
 								'FXP DECiBEL'							= @();
 								'Incl'									= @();
 								'Incl Emulator'							= @();
+								'Iso'									= @();
 								'Keygen'								= @('Keygen Library', 'Voxengo Keygen');
 								'Kontakt'								= @('Battery and Kontakt', 'Kontakt Snapshots', 'Kontakt Pro', 'Native Instruments Kontakt', '(Kontakt)', 'Kontakt Version', 'Kontakt Manager', 'Kontakt WIPS', 'Kontakt SIPS', 'Kontakt Libraries', 'Kontakt Library', 'R2R Kontakt NICNT Generator', 'R2R Team Kontakt Manager', 'for Kontakt', 'Kontakt Manager', 'Kontakt NICNT');
 								'Lin'									= @();
@@ -248,12 +260,24 @@ $global:phrasesToRemove = @{
 								'MacOS'									= @();
 								'Magnetrixx'							= @();
 								'MIDI'									= @('MIDI & Loops', 'Loops & MIDI', 'MIDI Collection', 'MIDI Pack', 'Jazz Brush MIDI', 'MIDI Velocity', 'MIDI for EZkeys', 'MIDI for EZbass', 'Piz MIDI', 'TXR1 MIDI', 'MIDI Bundle', 'MIDI Pack', 'MIDI Loops', 'SmartScore 64 MIDI', 'XBox MIDI Control', 'OSC MIDI Server');
+								'MOCHA'									= @();
 								'MORiA'									= @();
+								'MULTI6'								= @();
 								'MULTiFORMAT'							= @();
 								'Multilingual'							= @();
 								'NKI'									= @();
 								'NO INSTALL'							= @();
+								'Oddsox'								= @();
+								'Ohsie'									= @();
 								'Osx'									= @();
+								'PART01'								= @();
+								'PART02'								= @();
+								'PART03'								= @();
+								'PART04'								= @();
+								'PART1' 								= @();
+								'PART2' 								= @();
+								'PART3' 								= @();
+								'PART4' 								= @();
 								'Patch and Keygen'						= @();
 								'Patched and Keygen'					= @();
 								'Patched'								= @();
@@ -272,6 +296,10 @@ $global:phrasesToRemove = @{
 								'Setup'									= @();
 								'SYMLINK Installer'						= @();
 								'SYNTHiC4TE'							= @();
+								'Tcd'									= @();
+								'TeamCubea'								= @();
+								'TeamCubeado'							= @();
+								'Teamcubeadooby'						= @();
 								'Unlocked'								= @();
 								'V R'									= @();
 								'VR'									= @('SVT-VR');
@@ -281,9 +309,13 @@ $global:phrasesToRemove = @{
 								'VSTi'									= @('VSTi Scope');
 								'WAV DECiBEL'							= @();
 								'WAV'									= @('Essential WAV');
+								'WIN64'									= @();
 								'WIN MAC LIN'							= @();
 								'WIN MAC'								= @();
 								'WIN'									= @();
+								'www zonatorrent com'					= @();
+								'www.zonatorrent.com'					= @();
+								'x32x64'								= @();
 								'x64'									= @();
 								'x86'									= @();
 								'Zip'									= @();
@@ -302,6 +334,7 @@ $global:caseSensitivePhrases = @(
 								'20s',
 								'25th',
 								'30s',
+								'3ds Max',
 								'3DX',
 								'40s',
 								'44thFloor',
@@ -324,6 +357,7 @@ $global:caseSensitivePhrases = @(
 								'a',
 								'A Taste of Heaven',
 								'AAA',
+								'AB Assist',
 								'ABC',
 								'ABJ',
 								'Accusonus ERA',
@@ -372,6 +406,7 @@ $global:caseSensitivePhrases = @(
 								'ASMR',
 								'ASR',
 								'at',
+								'audio2score',
 								'AudioCipher',
 								'AudioGridder',
 								'AudioRealism',
@@ -384,6 +419,7 @@ $global:caseSensitivePhrases = @(
 								'AWP',
 								'AX',
 								'AZONIC',
+								'BaseHead',
 								'BBC',
 								'BBE',
 								'BeatBox',
@@ -406,6 +442,7 @@ $global:caseSensitivePhrases = @(
 								'BusComp',
 								'BussPressor',
 								'but',
+								'BVA',
 								'by',
 								'CamelSpace',
 								'CE',
@@ -415,6 +452,8 @@ $global:caseSensitivePhrases = @(
 								'ChilloutEngine',
 								'Chip64',
 								'ChordieApp',
+								'ChordPotion',
+								'ChordWizard',
 								'CineBells',
 								'CineBrass',
 								'CineHarps',
@@ -436,6 +475,8 @@ $global:caseSensitivePhrases = @(
 								'CompExp',
 								'CompuRhythm',
 								'CoreBass',
+								'CP-70',
+								'CP-70 V',
 								'Cr2',
 								'CS',
 								'CS15D',
@@ -451,6 +492,7 @@ $global:caseSensitivePhrases = @(
 								'DAG',
 								'DarkLight',
 								'DarkLord',
+								'DaVinci',
 								'DAW',
 								'DAWcentrix',
 								'DAWConnect',
@@ -459,6 +501,7 @@ $global:caseSensitivePhrases = @(
 								'DDMF',
 								'Deadton5',
 								'dearVR',
+								'DEBIRD',
 								'Decimort2',
 								'deCoda',
 								'DeepAudio',
@@ -499,6 +542,7 @@ $global:caseSensitivePhrases = @(
 								'ElectraX',
 								'ElectroNylon',
 								'eLicenser',
+								'Elixer - The Lost Tapes',
 								'EMISYNTH',
 								'EMP',
 								'EMT',
@@ -509,6 +553,7 @@ $global:caseSensitivePhrases = @(
 								'EP',
 								'EPS',
 								'EQ',
+								'Equator2',
 								'EQHack',
 								'EQP',
 								'ES',
@@ -517,6 +562,8 @@ $global:caseSensitivePhrases = @(
 								'EssEQ',
 								'EVI',
 								'EX',
+								'EXOVERB',
+								'EXOVERB MICRO',
 								'EXP A',
 								'EXP B',
 								'EXP C',
@@ -566,6 +613,7 @@ $global:caseSensitivePhrases = @(
 								'GEQ',
 								'GetGood',
 								'GForce',
+								'GFX',
 								'GhostViewer',
 								'GlissEQ',
 								'GoldWave',
@@ -579,7 +627,11 @@ $global:caseSensitivePhrases = @(
 								'Guitar Rig Pro',
 								'Guitar T',
 								'GuitarFX',
+								'Guitars DE',
+								'H.A.L.',
 								'HalfTime',
+								'HALion',
+								'HALO',
 								'HandsUp',
 								'HarmBode',
 								'HarmoniEQ',
@@ -595,6 +647,7 @@ $global:caseSensitivePhrases = @(
 								'HouseEngine',
 								'HQ',
 								'HQPlayer',
+								'HR Strings',
 								'HumbuckerGuitar',
 								'I',
 								'IBZ',
@@ -617,6 +670,7 @@ $global:caseSensitivePhrases = @(
 								'IR',
 								'IRs',
 								'is',
+								'ISL',
 								'IV',
 								'IX',
 								'JD 850',
@@ -630,6 +684,7 @@ $global:caseSensitivePhrases = @(
 								'JSTSideWidener',
 								'JU-06A',
 								'JUNO-106 The',
+								'K-Devices',
 								'KineticSoundPrism',
 								'KIViR',
 								'KLM',
@@ -646,13 +701,16 @@ $global:caseSensitivePhrases = @(
 								'LA Synthesizer',
 								'LA Synths',
 								'LatencyMon',
+								'Lectric Panda',
 								'LED',
 								'LFO',
+								'liftFX',
 								'LIMINAL',
 								'Linn60',
 								'LIP',
 								'LIPP',
 								'LIV',
+								'LM-Correct',
 								'LoopMash',
 								'loopMIDI',
 								'LP',
@@ -660,6 +718,7 @@ $global:caseSensitivePhrases = @(
 								'LPM',
 								'LSS',
 								'Lunacy Audio CUBE',
+								'LXP',
 								'LXR',
 								'M3G',
 								'M4L',
@@ -668,6 +727,7 @@ $global:caseSensitivePhrases = @(
 								'Mars Sid',
 								'Mars TOM',
 								'MarsPeaks',
+								'MasterCheck',
 								'MasterQ2',
 								'MasterTool',
 								'MAudioPlugins',
@@ -734,10 +794,12 @@ $global:caseSensitivePhrases = @(
 								'NoteLatch',
 								'NotePerformer',
 								'NuElectro',
+								'NUGEN Audio',
 								'NY',
 								'NYC',
 								'OB',
 								'Ocean Swift Synthesis Enterprise The',
+								'OCTA',
 								'of',
 								'off',
 								'OK',
@@ -747,6 +809,7 @@ $global:caseSensitivePhrases = @(
 								'oldTimerMB',
 								'OMI',
 								'on',
+								'OP-X',
 								'OPW',
 								'or',
 								'Orchestral Tools SINE',
@@ -757,6 +820,7 @@ $global:caseSensitivePhrases = @(
 								'OVO',
 								'PAKs',
 								'part',
+								'PastToFutureReverbs',
 								'PaulXStretch',
 								'PCM',
 								'per',
@@ -776,10 +840,13 @@ $global:caseSensitivePhrases = @(
 								'PopRock',
 								'PopSticks',
 								'Positive Grid BIAS',
+								'PowerDirector',
 								'PowerISO',
 								'PPG',
 								'PRISM',
+								'PRO-II',
 								'ProAudio',
+								'ProMars',
 								'ProWave',
 								'ProximityEQ',
 								'PRS',
@@ -803,6 +870,7 @@ $global:caseSensitivePhrases = @(
 								'ReaMIDI',
 								'ReaPack',
 								'Reason RE',
+								'ReCenter',
 								'ReDominator',
 								'Redoptor2',
 								'Reed106',
@@ -871,6 +939,7 @@ $global:caseSensitivePhrases = @(
 								'Sound Mangling ONE',
 								'Sound Mangling TWO',
 								'Sound Mangling THREE',
+								'SoundWeaver',
 								'SP 909',
 								'SPAN',
 								'SparkVerb',
@@ -885,6 +954,7 @@ $global:caseSensitivePhrases = @(
 								'SRP',
 								'SRX',
 								'StereoDelta',
+								'STEREOLAB',
 								'StereoPan',
 								'StereoView',
 								'StereoWidth',
@@ -908,9 +978,11 @@ $global:caseSensitivePhrases = @(
 								'SynthMaster',
 								'Syntorus2',
 								'SYS100M',
+								'SZA',
 								't00b',
 								'TapeEcho',
 								'TapinRadio',
+								'TATAT',
 								'TC',
 								'TE',
 								'TesslaSE',
@@ -943,13 +1015,17 @@ $global:caseSensitivePhrases = @(
 								'TV',
 								'Twisted ReActon',
 								'TX16W',
+								'UBERLOUD',
 								'UDS',
+								'UDU',
 								'UFO',
+								'UFX',
 								'UI',
 								'UK',
 								'UL',
 								'UltraMini',
 								'UmanskyBass',
+								'UnDistort',
 								'up',
 								'USA',
 								'UTL',
@@ -968,6 +1044,7 @@ $global:caseSensitivePhrases = @(
 								'via',
 								'VII',
 								'VIII',
+								'VideoMeld',
 								'VintageWarmer2',
 								'Viola da Gamba',
 								'Violin A',
@@ -975,6 +1052,7 @@ $global:caseSensitivePhrases = @(
 								'VIPZONE ',
 								'Vir2 Instruments BASiS',
 								'Vir2',
+								'VisLM',
 								'Vocal Tools The',
 								'VocalKitchen',
 								'VocalSynth',
@@ -1017,10 +1095,14 @@ $global:caseSensitivePhrases = @(
 								'XLN',
 								'xLPG',
 								'XO',
+								'XotoPad',
 								'XOXO',
 								'XP',
+								'XPro',
 								'XRATED',
 								'XT',
+								'XTC',
+								'Xtra',
 								'XXX',
 								'XY',
 								'yet',
@@ -1071,6 +1153,7 @@ $global:dashesToKeep = @(
 								'C-605P',
 								'Capella-Scan',
 								'Clar-Duduk',
+								'CP-70',
 								'CV-I',
 								'CV-O',
 								'Damm-Space',
@@ -1078,6 +1161,7 @@ $global:dashesToKeep = @(
 								'De-Esser',
 								'Dyna-Mite',
 								'E-Oud',
+								'Elixer - The Lost Tapes',
 								'Ernesto vs. Bastian',
 								'ES-01',
 								'EVE-AT1',
@@ -1105,10 +1189,12 @@ $global:dashesToKeep = @(
 								'JUPITER-8',
 								'JX-3P',
 								'JX-8P',
+								'K-Devices',
 								'K-Size',
 								'Kawai-EX',
 								'LF-Max',
 								'LF-Punch',
+								'LM-Correct',
 								'Lo-Fi',
 								'MDE-X',
 								'Mel-Lofi',
@@ -1121,11 +1207,14 @@ $global:dashesToKeep = @(
 								'One-Shot',
 								'One-Shots',
 								'One-Words',
+								'OP-X',
 								'PeQ-213',
 								'Plug-ins',
 								'Pop-Funky',
 								'Pop-Rock',
 								'Post-Rock',
+								'Pro-II',
+								'Pro-R',
 								'R-50e',
 								'Rave-O-Lution',
 								'Re-Code',
@@ -1165,6 +1254,7 @@ $global:dashesToKeep = @(
 								'Tube-Tech',
 								'Twin-L',
 								'Two-faces',
+								'u-he',
 								'Ultra TKT',
 								'UVX-10P',
 								'UVX-3P',
@@ -1189,12 +1279,14 @@ $global:dashesToKeep = @(
 $global:periodsToKeep = @(
 								'Dr. Dre',
 								'Ernesto vs. Bastian',
+								'H.A.L.',
 								'ha.pi',
 								'lo.ki',
 								'Mr.',
 								'No.',
 								'ro.ki',
-								'VI.ONE'
+								'VI.ONE',
+								'www.zonatorrent.com'
 						)
 
 # developers with commas will automatically be added to this list
@@ -1771,8 +1863,10 @@ $global:developers = 			@(
 								"D'Addario",
 								"Hit'n'Mix",
 								"Levy's Leathers",
+								'1oogames',
 								'2320 Click Entertainment',
 								'2CAudio',
+								'2MGT',
 								'344 Audio',
 								'3delite',
 								'3M',
@@ -1808,6 +1902,7 @@ $global:developers = 			@(
 								'Adult Porn Sound Effects',
 								'Aelyx Audio',
 								'Aeon Payne',
+								'AHS',
 								'AIR Music Technology',
 								'Aiyn Zahev Sounds',
 								'Akai',
@@ -1915,6 +2010,7 @@ $global:developers = 			@(
 								'Baauer',
 								'Baby Audio',
 								'Babylonwaves',
+								'Bace Technologies',
 								'Bastl Instruments',
 								'Baulerd',
 								'Baywood Audio',
@@ -1922,7 +2018,7 @@ $global:developers = 			@(
 								'BBE Sound',
 								'Be Wary Software',
 								'Beat Butcha',
-								'Beautiful Void',
+								'Beautiful Void Audio',
 								'Beatmasters',
 								'Beatnick Dee',
 								'Beatrising',
@@ -1947,6 +2043,7 @@ $global:developers = 			@(
 								'Bilione',
 								'bitley sounds & refills',
 								'Bitwig',
+								'Blackmagic Design',
 								'Black Box Analog Design',
 								'Black Octopus Sound',
 								'Black Rooster Audio',
@@ -1977,7 +2074,8 @@ $global:developers = 			@(
 								'Bunker 8 Digital Labs',
 								'Bunker Samples',
 								'Busy Works Beats',
-								'C.A. Sound',
+								'BVA',
+								'C.A Sound',
 								'C2G',
 								'Cable Matters',
 								'CableClips',
@@ -2002,6 +2100,7 @@ $global:developers = 			@(
 								'Che',
 								'Cherry Audio',
 								'Chocolate Audio',
+								'ChordWizard',
 								'ChowDSP',
 								'Chris Hein',
 								'Christian Budde',
@@ -2042,6 +2141,7 @@ $global:developers = 			@(
 								'Crucial',
 								'Cryptic',
 								'Crypto Cipher',
+								'CyberLink',
 								'Cycling74',
 								'Cymatics',
 								'D16 Group',
@@ -2092,6 +2192,7 @@ $global:developers = 			@(
 								'Donna',
 								'Donner',
 								'DoubleY',
+								'DRAYKI',
 								'Dreadbox',
 								'Dream Audio Tools',
 								'Dreamtonics',
@@ -2101,6 +2202,7 @@ $global:developers = 			@(
 								'Drum Vault',
 								'Drum Workshop',
 								'DS Audio',
+								'dSONIQ',
 								'Dude Clayy',
 								'Dunlop',
 								'Dupad',
@@ -2135,6 +2237,7 @@ $global:developers = 			@(
 								'Ensoniq',
 								'Epic Stock Media',
 								'Equinox Sounds',
+								'Ergo Kukke',
 								'Ergotron',
 								'Erik Jackson',
 								'Essential Audio',
@@ -2153,6 +2256,7 @@ $global:developers = 			@(
 								'FabFilter',
 								'Fable Sounds',
 								'Fairlight',
+								'Fallout Music Group',
 								'Famous Audio',
 								'Fantastic Lab',
 								'Faodzc',
@@ -2163,6 +2267,7 @@ $global:developers = 			@(
 								'FeelYourSound',
 								'Fender',
 								'Fernospazzin',
+								'Ferpect Instruments',
 								'Field and Foley',
 								'Field Reports',
 								'Findasound',
@@ -2176,6 +2281,7 @@ $global:developers = 			@(
 								'Flux',
 								'Focusrite',
 								'Force Sampling',
+								'Forever 89',
 								'Four4',
 								'Fox Samples',
 								'Fractal Sounds',
@@ -2198,6 +2304,7 @@ $global:developers = 			@(
 								'Fvii',
 								'FXpansion',
 								'FYY',
+								'FX23',
 								'Gabe Miller',
 								'Gamechanger Audio',
 								'Gareth Morris',
@@ -2226,6 +2333,7 @@ $global:developers = 			@(
 								'Glitchmachines',
 								'Glorkglunk', 
 								'Godlike Loops',
+								'Godz',
 								'GOGOi',
 								'Goldbaby',
 								'Golden Profit Electronics',
@@ -2241,8 +2349,8 @@ $global:developers = 			@(
 								'Green Light District',
 								'Gretsch',
 								'GSi',
-								'Guareschi',
 								'Guilhermeosilva',
+								'Guillermo Guareschi',
 								'Gulbransen',
 								'Hammond',
 								'HandheldSound',
@@ -2260,6 +2368,7 @@ $global:developers = 			@(
 								'Hexloops',
 								'Hidden Sound',
 								'Hideaway Studio',
+								'Hiits',
 								'Hntmao',
 								'HOFA',
 								'Hollywood Edge',
@@ -2272,6 +2381,7 @@ $global:developers = 			@(
 								'Howard Smith',
 								'HPFIX',
 								'HQO',
+								'HR Sounds',
 								'HunterKiller',
 								'HY-Plugins',
 								'Hy2rogen',
@@ -2286,6 +2396,7 @@ $global:developers = 			@(
 								'Ichiro Toda',
 								'IK Multimedia',
 								'Ilio Sonic',
+								'Illformed',
 								'Ilya Efimov',
 								'Image Sounds',
 								'Image-Line',
@@ -2439,7 +2550,7 @@ $global:developers = 			@(
 								'Major Oscillator',
 								'Make Noise',
 								'Make Pop Music',
-								'Makemusic',
+								'MakeMusic',
 								'Malte Klima',
 								'Mango Loops',
 								'Marc Barnes Sounds',
@@ -2526,7 +2637,7 @@ $global:developers = 			@(
 								'MVPloops',
 								'MXR',
 								'Mycrazything Sounds',
-								'Myriad Online',
+								'Myriad',
 								'myVolts',
 								'N Tune Music',
 								'n-Track',
@@ -2572,7 +2683,7 @@ $global:developers = 			@(
 								'Novation',
 								'NovoNotes',
 								'NS Musical',
-								'Nugen Audio',
+								'NUGEN Audio',
 								'O! Samples',
 								'Oberheim',
 								'Oblivion Sound',
@@ -2768,6 +2879,7 @@ $global:developers = 			@(
 								'SanDisk',
 								'Sauceware Audio',
 								'Sauceware',
+								'ScanScore',
 								'Schaack Audio',
 								'SCHOEPS',
 								'Schylling',
@@ -2861,6 +2973,7 @@ $global:developers = 			@(
 								'Sonuscore',
 								'Soul Surplus',
 								'Souldier',
+								'Soulker',
 								'Sound Aesthetics Sampling',
 								'Sound Bankz',
 								'Sound Doctrine',
@@ -2906,6 +3019,7 @@ $global:developers = 			@(
 								'Standalone-Music',
 								'Standtastic',
 								'StarTech',
+								'Streemproduction',
 								'Stefano Maccarelli',
 								'Steinberg',
 								'Steve Pageot',
@@ -2995,6 +3109,7 @@ $global:developers = 			@(
 								'Tone2',
 								'ToneBoosters',
 								'Tonehammer',
+								'ToneLib',
 								'Tonepusher',
 								'Toolbox Samples',
 								'Toontrack',
@@ -3145,6 +3260,7 @@ $global:developers = 			@(
 								'Zero-G',
 								'Zoom',
 								'Zplane',
+								'ZTENKO',
 								'Zynaptiq'
 						)
 						

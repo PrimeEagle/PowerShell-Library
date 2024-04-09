@@ -17,8 +17,16 @@ class QueueItem
 		$this.BackupPath = $backupPath
 		$this.DeviceId = $deviceId
 		$this.BackupDeviceId = $backupDeviceId
-		$this.DriveLetter = $path.Substring(0, 3).ToUpper()
-		$this.BackupDriveLetter = $backupPath.Substring(0, 3).ToUpper()
+		
+		if(-Not [string]::IsNullOrWhiteSpace($path) -And ($path.Length -ge 3) -And ($path.Substring(1, 1) -eq ":"))
+		{
+			$this.DriveLetter = $path.Substring(0, 3).ToUpper()
+		}
+		
+		if(-Not [string]::IsNullOrWhiteSpace($backupPath))
+		{
+			$this.BackupDriveLetter = $backupPath.Substring(0, 3).ToUpper()
+		}
 	}
 }
 
@@ -95,8 +103,24 @@ function Get-PathQueue
 			Confirm-USBDrives
 		}
 	
-		Write-DisplayTrace "Exit $funcName"
+		if($DriveLetter.Count -gt 0)
+		{
+		}
 		
+		if($DriveLabel.Count -gt 0)
+		{
+		}
+		
+		if($Path.Count -gt 0) 
+		{
+			foreach($p in $path)
+			{
+				$queue += [QueueItem]::new($p, $p, "", "", "")
+			}
+		}
+		
+		Write-DisplayTrace "Exit $funcName"
+		Write-Host ($queue | Format-List | Out-String)
 		$queue
 	}
 }

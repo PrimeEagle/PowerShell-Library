@@ -392,7 +392,8 @@ function Get-MinimumRequiredParameterCount {
     param (
         [System.Management.Automation.CommandInfo]$CommandInfo
     )
-
+	$CommandInfo = Get-Command $MyInvocation.MyCommand.Name
+	
     $parameterSetMandatoryCounts = @{}
 
     foreach ($param in $CommandInfo.Parameters.Values) {
@@ -431,7 +432,7 @@ function Build-BaseParameters
     param( 	[Parameter()]	
 														[switch]		$IncludeMusicPathQueues
 		 )
-		 
+
     $paramDictionary = New-Object -Type System.Management.Automation.RuntimeDefinedParameterDictionary
 	$baseParameterDefinitions = Get-BaseParameterDefinitions -IncludeMusicPathQueues:$IncludeMusicPathQueues
 

@@ -65,7 +65,7 @@ function Get-RootInvocationInfo
 	
 	$stack = Get-PSCallStack
 	$result = $stack.InvocationInfo[-2]
-	
+
 	$result
 }
 
@@ -91,8 +91,8 @@ function Get-RootBoundParameter
     param(	[Parameter(	Position = 0,
 						Mandatory = $true,
 						ValueFromPipeline = $true)]
-			[ValidateVariable()]
-													[string]$Parameter
+						[ValidateVariable()]
+						[string]$Parameter
 		 ) 
 		
 	$rootInvocation = Get-RootInvocationInfo
@@ -320,7 +320,7 @@ function Get-BaseParamPath
 {
 	[CmdletBinding()]
     param()
-	
+
 	return Get-RootBoundParameter Path
 }
 
