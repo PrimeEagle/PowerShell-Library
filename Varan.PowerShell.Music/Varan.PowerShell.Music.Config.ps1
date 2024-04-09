@@ -1016,6 +1016,7 @@ $global:caseSensitivePhrases = @(
 								'Twisted ReActon',
 								'TX16W',
 								'UBERLOUD',
+								'u-he',
 								'UDS',
 								'UDU',
 								'UFO',
