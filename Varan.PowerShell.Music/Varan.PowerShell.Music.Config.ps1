@@ -283,7 +283,7 @@ $global:phrasesToRemove = @{
 								'Patched'								= @();
 								'Portable'								= @();
 								'Proper'								= @();
-								'R2R'									= @('R2R version', 'R2R Kontakt Manager', 'R2R Kontakt NICNT Generator', 'R2R Team Kontakt Manager', 'R2R Steinberg Silk Emulator');
+								'R2R'									= @('R2R version', 'R2R Kontakt Manager', 'R2R Kontakt NICNT Generator', 'R2R Team Kontakt Manager', 'R2R Steinberg Silk Emulator', 'R2R ASCEMU2', 'R2R u-he Serial Index Calculator');
 								'R4E'									= @();
 								'READ NFO'								= @();
 								'Regged'								= @();
@@ -750,6 +750,7 @@ $global:caseSensitivePhrases = @(
 								'MidBooster',
 								'MIDI',
 								'MIM',
+								'MiniMeters',
 								'MiniPops',
 								'MiniXD',
 								'MIR',
@@ -1016,7 +1017,6 @@ $global:caseSensitivePhrases = @(
 								'Twisted ReActon',
 								'TX16W',
 								'UBERLOUD',
-								'u-he',
 								'UDS',
 								'UDU',
 								'UFO',
@@ -2177,6 +2177,7 @@ $global:developers = 			@(
 								'Digital Sound Factory',
 								'Digital Suburban',
 								'Dillon Bastan',
+								'Direct',
 								'Dirk Campbell',
 								'Dirty Music',
 								'Discovery Firm',
@@ -3233,6 +3234,7 @@ $global:developers = 			@(
 								'World Tour',
 								'Wow! Records',
 								'Wrap-It',
+								'Wrongtools',
 								'WXAudio',
 								'Xenos Soundworks',
 								'Xfer Records',
