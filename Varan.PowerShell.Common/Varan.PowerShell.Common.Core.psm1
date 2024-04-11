@@ -340,4 +340,44 @@ function Get-BaseParamDebugItemAction
 	return Get-RootBoundParameter DebugItemAction
 }
 
+function Add-NuGetType {
+    param (
+        [Parameter(Mandatory)] [string]$PackageName,
+        [Parameter()] [string]$AssemblyName,
+        [Parameter()] [string]$SubdirectoryName
+    )
+
+    $packagePath = "$env:USERPROFILE\.nuget\packages"
+    $nugetPackagePath = Join-Path $packagePath $PackageName
+
+    if (-Not (Test-Path $nugetPackagePath)) {
+        if (-Not (Get-Command "nuget" -ErrorAction SilentlyContinue)) {
+            Write-Error "NuGet is not installed. Please install NuGet and try again."
+            return
+        }
+
+        nuget install $PackageName -OutputDirectory $packagePath
+    }
+
+    $assembly = if ($AssemblyName) { $AssemblyName } else { $PackageName }
+
+    $assemblyFiles = Get-ChildItem $nugetPackagePath -Recurse -Filter "$assembly.dll" |
+                     Where-Object { -Not $SubdirectoryName -or $_.FullName -match $SubdirectoryName }
+
+    if ($assemblyFiles.Count -eq 0) {
+        Write-Error "Assembly '$assembly.dll' not found in package '$PackageName'."
+        return
+    }
+
+    $assemblyPath = $assemblyFiles[0].FullName
+
+    try {
+        Add-Type -Path $assemblyPath
+    }
+    catch {
+        Write-Error "Failed to load assembly '$assemblyPath'."
+    }
+}
+
+
 Export-ModuleMember -Function *

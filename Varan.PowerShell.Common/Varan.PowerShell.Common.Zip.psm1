@@ -50,6 +50,8 @@ function Get-ZipList
 		[string]$Password
 	)	
 	
+	try
+	{
 		$funcName = $MyInvocation.MyCommand
 		Write-DisplayTraceCallerInfo -Parameters $PSBoundParameters
 	
@@ -82,24 +84,33 @@ function Get-ZipList
 			
 			
 			Write-DisplayDebug "reserved phrase present: $reservedPhrase"
+			Write-DisplayDebug "space: $($o.StartsWith(' '))"
+			Write-DisplayDebug "dash: $($o.StartsWith('-'))"
 			
-			if(	$reservedPhrase -Or $o.StartsWith(' ') -Or $o.StartsWith('-') -Or
+			if(	$reservedPhrase -Or ($o -match '^[^a-zA-Z0-9]') -Or
 				(($o.Contains(' file, ')) -And ($o.Contains(' bytes ('))) -Or
 				($o.Length -le 52) -Or
 				($o.Substring(20, 5).Trim().Length -eq 0) -Or
 				($o.Contains("ERROR")))
 			{
+				Write-Debug "continue"
 				continue
 			}
 					
 			$zipInfo = [ZipItem]::new()
 
-			Write-Debug "o = $o"
-			
+			Write-DisplayDebug "o = [$o]"
+
 			$idx = 0
 			$len = 19
-			$zipInfo.Timestamp = $o.Substring($idx, $len)
+			try {
+				[DateTime]$tempDateTime = $o.Substring($idx, $len)
+			}
+			catch {
+				continue
+			}
 			
+			$zipInfo.Timestamp = $tempDateTime
 			$idx = 20
 			$len = 5
 			$type = $o.Substring($idx, $len)
@@ -118,16 +129,22 @@ function Get-ZipList
 			$idx = 52
 			$zipInfo.Name = $o.Substring($idx)
 
-			Write-Debug "TopLevel = $TopLevel"
-			Write-Debug "Timestamp = $Timestamp"
-			Write-Debug "ItemType = $ItemType"
-			Write-Debug "Name = $Name"
-			Write-Debug "Size = $Size"
-			Write-Debug "CompressedSize = $CompressedSize"
+			Write-DisplayDebug "TopLevel = $TopLevel"
+			Write-DisplayDebug "Timestamp = $Timestamp"
+			Write-DisplayDebug "ItemType = $ItemType"
+			Write-DisplayDebug "Name = $Name"
+			Write-DisplayDebug "Size = $Size"
+			Write-DisplayDebug "CompressedSize = $CompressedSize"
 			
 			if($zipInfo.Name.IndexOf('\') -lt 0) { $zipInfo.TopLevel = $true }
 			$result += $zipInfo
 		}
+	}
+	catch
+	{
+		Write-Error $_
+		throw
+	}
 
 	$result
 	
